@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  description: This is an API for humidity and temperature report
+  version: 1.0.0
+  title: humidity and temperature API
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /events/stats:
+    get:
+      summary: gets events stats for humidity and temperature
+      operationId: app.get_reading_stats
+      description: Gets reading stats
+      produces:
+      - application/json
+      responses:
+        200:
+          description: current stats
+          schema:
+              $ref: '#/definitions/ReadingStats'
+        400:
+          description: stats do not exist
+
+definitions:
+  ReadingStats:
+    type: object
+    required:
+    - num_hd_readings
+    - num_tp_readings
+    - timestamp
+    properties:
+      num_hd_reading:
+        type: integer
+        example: 1023
+      num_tp_reading:
+        type: integer
+        example: 1023
+      updated_timestamp:
+        type: string
+        format: date-time
+        example: 2016-08-29T09:12:33.001Z
