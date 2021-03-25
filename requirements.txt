@@ -9,4 +9,4 @@ PyMySQL==0.9.3
 pykafka==2.8.0
 xmlrunner==1.7.7
 mysql-connector-python==8.0.19
-PyYAML==5.3
+PyYAML==5.4
